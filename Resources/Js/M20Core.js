@@ -9,7 +9,7 @@ class M20 {
         this.logoOpacity = -0.5;
     };
     gameLoop() {
-        this.ctx.clearRect(0,0,1000,1000);
+        this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
         if(this.drawLogo)
         {
             this.prectx.font = "bold 470px comic sans ms";
@@ -17,15 +17,15 @@ class M20 {
             this.prectx.lineWidth = 5;
             this.prectx.fillStyle = "rgba(200,200,200,"+((Math.floor(this.logoOpacity)/10)-1)+")";
             this.prectx.strokeStyle = "rgba(200,200,200,"+((Math.floor(this.logoOpacity)/10)-1)+")";
-            this.prectx.fillText("M20", 490, 595);
-            this.prectx.strokeText("M20", 490, 595);
+            this.prectx.fillText("M20", this.canvas.width*0.490, this.canvas.height*0.595);
+            this.prectx.strokeText("M20", this.canvas.width*0.490, this.canvas.height*0.595);
             this.prectx.fillStyle = "rgba(100,100,100,"+(Math.floor(this.logoOpacity)/10)+")";
             this.prectx.strokeStyle = "rgba(200,200,200,"+((Math.floor(this.logoOpacity)/10)-1)+")";
-            this.prectx.fillText("M20", 500, 605);
-            this.prectx.strokeText("M20", 500, 605);
+            this.prectx.fillText("M20", this.canvas.width*0.500, this.canvas.height*0.605);
+            this.prectx.strokeText("M20", this.canvas.width*0.500, this.canvas.height*0.605);
             this.prectx.font = "bold 120px impact";
-            this.prectx.strokeText("E  N  G  I  N  E", 500, 750);
-            this.prectx.fillText("E  N  G  I  N  E", 500, 750);
+            this.prectx.strokeText("E  N  G  I  N  E", this.canvas.width*0.5, this.canvas.height*0.75);
+            this.prectx.fillText("E  N  G  I  N  E", this.canvas.width*0.500, this.canvas.height*0.750);
             this.logoOpacity += 0.1;
         }
         if (this.gameState)
@@ -35,7 +35,7 @@ class M20 {
         }
         if (this.frameRate)
             this.frameRate.draw();
-        this.ctx.drawImage(this.precanvas,0,0,1000,1000);
+        this.ctx.drawImage(this.precanvas,0,0,this.canvas.width,this.canvas.height);
         //console.log();
         requestAnimationFrame(() => {this.gameLoop();});
     };
@@ -49,6 +49,7 @@ class M20 {
             var type;
             var getUrl = window.location;
             var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+            //baseUrl += "/" + getUrl.pathname.split('/')[2];
             switch (name)
             {
                 case "audio":

@@ -138,7 +138,7 @@ class Vrect {
         }
         return result;
     };
-    static vecContained(vec, target) {//check if this is contained inside target
+    static vecContained(vec, target) {//check if vec is contained inside target
         var result;
         if (vec.y >= target.top && vec.x >= target.left && 
                 vec.x <= target.right && vec.y <= target.bottom)

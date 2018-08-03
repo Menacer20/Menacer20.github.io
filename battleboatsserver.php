@@ -1,6 +1,5 @@
 <?php 
 header("Access-Control-Allow-Origin: *");
-
 echo "server recieved ".file_get_contents("php://input")."\n";
 $p = json_decode(file_get_contents("php://input"));
 $list = json_decode(file_get_contents("gamelist.json"));
